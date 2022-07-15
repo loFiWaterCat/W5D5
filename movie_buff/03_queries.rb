@@ -1,6 +1,7 @@
 def what_was_that_one_with(those_actors)
   # Find the movies starring all `those_actors` (an array of actor names).
   # Show each movie's title and id.
+  Movie.joins(:actors).where("actors.name in (?)", those_actors).select('movies.title,movies.id')
   
 end
 
